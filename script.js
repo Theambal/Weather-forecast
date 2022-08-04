@@ -24,8 +24,6 @@ img.classList.add('icon')
 let h1 = document.querySelector('.city-name');
 document.querySelector('header').append(img);
 
-
-
 function createUl() {
     let ul = document.createElement('ul');
     ul.classList.add('list-ul');
@@ -40,7 +38,6 @@ function fillingLi(arr) {
     }
     ul.innerHTML = result;
 }
-
 
 function createSelect() {
     let select = document.createElement('select');
@@ -63,8 +60,8 @@ createUl();
 fillingLi(liClass);
 createSelect();
 fillingSelect();
+
 function showWeather(data) {
-    console.log(data);
     h1.textContent = data.name;
     document.querySelector('.temp').innerHTML = `Температура: ${Math.round(data.main.temp)}&deg; `;
     document.querySelector('.feels-like').innerHTML = `Ощущается как: ${Math.round(data.main.feels_like)}&deg; `;
@@ -74,7 +71,6 @@ function showWeather(data) {
     img.src = `http://openweathermap.org/img/wn/${data.weather[0]['icon']}@2x.png`;
     img.alt = `${data.weather[0]['description']}`
     document.querySelector('.description').textContent = data.weather[0]['description'];
-
 };
 
 getWeather();
